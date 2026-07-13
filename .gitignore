@@ -1,0 +1,4 @@
+.env
+.vite
+backend/media/
+node_modules

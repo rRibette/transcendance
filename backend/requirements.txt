@@ -1,0 +1,26 @@
+#framework principal
+Django==5.2.14
+
+#API rest
+djangorestframework==3.15.2
+djangorestframework-simplejwt==5.5.1
+django-cors-headers==4.4.0
+
+#Base de donnees PostgreSQL
+psycopg2-binary==2.9.10
+
+#Websoket
+channels==4.1.0
+channels-redis==4.2.0
+daphne==4.1.2
+
+#client redis
+redis==5.0.8
+
+#gestion des images
+Pillow==12.2.0
+
+django-allauth==65.14.1
+dj-rest-auth==7.2.0
+requests==2.33.0
+cryptography==46.0.7
