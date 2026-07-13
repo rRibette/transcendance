@@ -75,7 +75,7 @@ function GameRoom() {
 		setRoomReady(false);
 		const allowedusers = roomName?.split("--").filter(Boolean);
 		if (!allowedusers || allowedusers.length !== 2 || allowedusers[0] === allowedusers[1] || !allowedusers.includes(selfusername ?? "")) {
-		navigate("/home");
+			navigate("/home");
 		}
 	}, [roomName, selfusername, navigate]);
 
@@ -87,20 +87,22 @@ function GameRoom() {
 			headers: { 'Accept': 'application/json' },
 		})
 		.then(res => res.json())
-		.then(data => { if (data?.id) setOtherId(data.id); })
+		.then(data => { 
+			if (data?.id) setOtherId(data.id);
+			else navigate("/home"); })
 		.catch(() => {});
 	}, [otherusername]);
 
 
 	useEffect(() => {
 		if (!otherId) 
-		return;
+			return;
 		const allowedusers = roomName?.split("--").filter(Boolean);
 		const isValidRoom = allowedusers?.length === 2 &&
 		allowedusers[0] !== allowedusers[1] &&
 		allowedusers.includes(selfusername ?? "");
 		if (!isValidRoom) 
-		return;
+			return;
 
 		const RealRoomName = selfid < otherId
 		? [selfusername, otherusername].join("--")
